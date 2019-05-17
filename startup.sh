@@ -12,5 +12,5 @@ if [ "$COMMAND" == "update" ] || [ "$COMMAND" == "updaterun" ]; then
 fi   
 
 if [ "$COMMAND" == "run" ] || [ "$COMMAND" == "updaterun" ]; then            
-   /opt/insurgency/Insurgency/Binaries/Linux/InsurgencyServer-Linux-Shipping Oilfield?Scenario=Scenario_Refinery_Push_Security?MaxPlayers=28 -Port=27102 -QueryPort=27131 -log -hostname="0TestServer" $@
+   /opt/insurgency/Insurgency/Binaries/Linux/InsurgencyServer-Linux-Shipping Farmhouse?Scenario=Scenario_Farmhouse_Checkpoint_Security?MaxPlayers=12 -Port=27102 -QueryPort=27131 -log -hostname="0TestServer" $@
 fi
