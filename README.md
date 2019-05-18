@@ -38,3 +38,7 @@ $ docker run -ti --rm \
     bowmanhan/insurgency_sandstorm_server \
     run -console
 ```
+
+## Official Server Manual
+
+https://docs.google.com/document/d/1GDLg5p9jjeIya7EgBk0ibzDtDlyQ-U_jpspOzby-JmM/edit
