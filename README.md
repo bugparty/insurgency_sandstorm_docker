@@ -8,7 +8,7 @@ Install the latest version of insurgency and create a volume to `/opt/insurgency
 
 ```shell
 $ docker run -ti --rm \
-    -p 27102:27102/udp -p 27131:27131 \
+    -p 27102:27102/udp -p 27131:27131/udp \
     -v $PWD/insurgency/:/opt/insurgency/ \
     bowmanhan/insurgency_sandstorm_server \
     update
@@ -22,7 +22,7 @@ Then start the server
 
 ```shell
 $ docker run -ti --rm \
-    -p 27102:27102/udp -p 27131:27131 \
+    -p 27102:27102/udp -p 27131:27131/udp \
     -v $PWD/insurgency/:/opt/insurgency/ \
     bowmanhan/insurgency_sandstorm_server \
 ```
@@ -33,7 +33,7 @@ You can disable check for updates by specifying `run -console` as the startup co
 
 ```shell
 $ docker run -ti --rm \
-    -p 27102:27102/udp -p 27131:27131 \
+    -p 27102:27102/udp -p 27131:27131/udp \
     -v $PWD/insurgency/:/opt/insurgency/ \
     bowmanhan/insurgency_sandstorm_server \
     run -console
