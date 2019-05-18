@@ -36,7 +36,7 @@ RUN chmod +x /app/startup.sh
 
 # Make server port available to host
 EXPOSE 27102/udp 
-EXPOSE 27131/tcp
+EXPOSE 27131/udp
 
 WORKDIR /opt/insurgency
 
