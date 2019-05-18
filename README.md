@@ -42,3 +42,7 @@ $ docker run -ti --rm \
 ## Official Server Manual
 
 https://docs.google.com/document/d/1GDLg5p9jjeIya7EgBk0ibzDtDlyQ-U_jpspOzby-JmM/edit
+
+## Best Server Config Files So Far
+
+https://github.com/zWolfi/INS_Sandstorm
