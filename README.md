@@ -4,6 +4,14 @@ A docker container for running a dedicated Insurgency sandstorm server
 
 open box and use granted, no extra tweat needed
 
+## Server Requirements
+
+Processor: 2 gigahertz (GHz) or faster processor
+
+RAM: 1.5 gigabyte (GB)
+
+Hard disk space: 4 GB 
+
 ## Quick start
 
 Install the latest version of insurgency and create a volume to `/opt/insurgency` to persist the game files outside of the container.
