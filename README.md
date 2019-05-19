@@ -7,11 +7,13 @@ A docker container for running a dedicated Insurgency sandstorm server
 Install the latest version of insurgency and create a volume to `/opt/insurgency` to persist the game files outside of the container.
 
 ```shell
-$ docker run -ti --rm \
-    -p 27102:27102/udp -p 27131:27131/udp \
-    -v $PWD/insurgency/:/opt/insurgency/ \
+	
+$ docker run -it --rm \
+  -p 27102:27102/udp -p 27131:27131/udp \
+  -v $PWD/insurgency/:/opt/insurgency/ \
     bowmanhan/insurgency_sandstorm_server \
-    update
+   update
+
 ```
 
 Create a `server.cfg` file in your game file volume at `insurgency/cfg/server.cfg`. 
@@ -21,10 +23,11 @@ Create a `server.cfg` file in your game file volume at `insurgency/cfg/server.cf
 Then start the server
 
 ```shell
-$ docker run -ti --rm \
-    -p 27102:27102/udp -p 27131:27131/udp \
-    -v $PWD/insurgency/:/opt/insurgency/ \
+$ docker run -it --rm \
+  -p 27102:27102/udp -p 27131:27131/udp \
+  -v $PWD/insurgency/:/opt/insurgency/ \
     bowmanhan/insurgency_sandstorm_server \
+	   run -hostname="your server name"
 ```
 
 ## Updates
@@ -32,9 +35,9 @@ $ docker run -ti --rm \
 You can disable check for updates by specifying `run -console` as the startup command. The default command is `updaterun -console` which will check for updates and verify game files before starting the server.
 
 ```shell
-$ docker run -ti --rm \
-    -p 27102:27102/udp -p 27131:27131/udp \
-    -v $PWD/insurgency/:/opt/insurgency/ \
+$ docker run -it --rm \
+  -p 27102:27102/udp -p 27131:27131/udp \
+  -v $PWD/insurgency/:/opt/insurgency/ \
     bowmanhan/insurgency_sandstorm_server \
     run -console
 ```

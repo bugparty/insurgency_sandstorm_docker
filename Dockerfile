@@ -15,6 +15,8 @@ RUN set -x \
 		wget \
 		ca-certificates \
 		nano \
+		htop \
+		nload \
 	&& useradd -m steam \
 	&& su steam -c \
 		"mkdir -p /home/steam/steamcmd" \
@@ -34,9 +36,13 @@ RUN chown steam -R /opt/steamcmd \
 ADD startup.sh /app/startup.sh
 RUN chmod +x /app/startup.sh
 
+# ADD game config tweaks ini files
+ADD Insurgency.tar.gz /app/
+
 # Make server port available to host
 EXPOSE 27102/udp 
 EXPOSE 27131/udp
+EXPOSE 29099/tcp
 
 WORKDIR /opt/insurgency
 
