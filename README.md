@@ -4,6 +4,10 @@ A docker container for running a dedicated Insurgency sandstorm server
 
 open box and use granted, no extra tweat needed
 
+
+ [![](https://img.shields.io/docker/stars/bowmanhan/insurgency_sandstorm_server.svg)](https://hub.docker.com/r/bowmanhan/insurgency_sandstorm_server 'DockerHub')
+ [![](https://img.shields.io/docker/pulls/bowmanhan/insurgency_sandstorm_server.svg)](https://hub.docker.com/rbowmanhan/insurgency_sandstorm_server 'DockerHub') [![](https://img.shields.io/docker/automated/bowmanhan/insurgency_sandstorm_server.svg)](https://hub.docker.com/r/bowmanhan/insurgency_sandstorm_server 'DockerHub') [![](https://img.shields.io/github/stars/bugparty/node-for-react-snap.svg?label=Stars&style=social)](https://github.com/bugparty/insurgency_sandstorm_docker/)
+
 ## Server Requirements
 
 Processor: 2 gigahertz (GHz) or faster processor
