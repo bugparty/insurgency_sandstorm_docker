@@ -1,5 +1,5 @@
 FROM debian:stretch-slim
-
+LABEL maintainer="fancycode@gmail.com"
 # Install, update & upgrade packages
 # Create user for the server
 # This also creates the home directory we later need
