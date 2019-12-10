@@ -37,7 +37,7 @@ ADD startup.sh /app/startup.sh
 RUN chmod +x /app/startup.sh
 
 # ADD game config tweaks ini files
-ADD Insurgency.tar.gz /app/
+#ADD Insurgency.tar.gz /app/
 
 # Make server port available to host
 EXPOSE 27102/udp 
