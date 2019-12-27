@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM base
 LABEL maintainer="fancycode@gmail.com"
 # Install, update & upgrade packages
 # Create user for the server
@@ -7,42 +7,20 @@ LABEL maintainer="fancycode@gmail.com"
 # Create Directory for SteamCMD
 # Download SteamCMD
 # Extract and delete archive
-RUN set -x \
-	&& apt-get update \
-	&& apt-get install -y --no-install-recommends --no-install-suggests \
-		lib32stdc++6 \
-		lib32gcc1 \
-		wget \
-		ca-certificates \
-		nano \
-		htop \
-		nload \
-	&& useradd -m steam \
-	&& su steam -c \
-		"mkdir -p /home/steam/steamcmd" \
-       && apt-get clean autoclean \
-        && apt-get autoremove -y \
-        && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
-# Create insurgency directory
-RUN mkdir -p /opt/steamcmd \
-    && mkdir -p /opt/insurgency
-ADD  steamcmd_linux.tar.gz /opt/steamcmd
-RUN chown steam -R /opt/steamcmd \
-    && chown steam -R  /opt/insurgency
-
-
+COPY --chown=steam config_ins/Insurgency /app/Insurgency
 # Add startup script
-ADD startup.sh /app/startup.sh
-RUN chmod +x /app/startup.sh
-
-# ADD game config tweaks ini files
-#ADD Insurgency.tar.gz /app/
+COPY --chown=steam startup.sh /app/startup.sh
+#RUN chmod +x /app/startup.sh
+ENV GAME_PORT 27102
+ENV QUERY_PORT 27131
+ENV MAX_PLAYERS 10
+ENV SERVER_NAME MagicGirl
 
 # Make server port available to host
-EXPOSE 27102/udp 
-EXPOSE 27131/udp
-EXPOSE 29099/tcp
+EXPOSE ${GAME_PORT}/udp 
+EXPOSE ${QUERY_PORT}/udp
+EXPOSE 29100/tcp
 
 WORKDIR /opt/insurgency
 

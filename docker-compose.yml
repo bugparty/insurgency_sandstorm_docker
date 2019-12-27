@@ -2,13 +2,14 @@ version: '3'
 services:
   server:
     build: .
+    network_mode: "host"
     ports:
-    - "27102:27102/udp"
-    - "27131:27131/udp"
-    command: updaterun -hostname="[CN]RyzenOp max20player"
-    volumes:
-    - ./config_ins/Insurgency:/app/Insurgency
-    - insurgencyData/:/opt/Insurgency
+    - "27104:27104/udp"
+    - "27132:27132/udp"
+    command: run 
+    logging:
+     options:
+      max-size: "5m"
+    restart: always
+      
    
-volumes:
-  insurgencyData: {}
