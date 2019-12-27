@@ -12,9 +12,17 @@ open box and use granted, no extra tweat needed
 
 Processor: 2 gigahertz (GHz) or faster processor
 
-RAM: 1.5 gigabyte (GB)
+RAM: 1.5 gigabytes (GB)
 
-Hard disk space: 4 GB 
+Hard disk space: 5 GB
+
+## Recommand Requirements
+
+Processor: 3.5 gigahertz (GHz) or faster processor
+
+RAM: 3 gigabytes (GB)
+
+Hard disk space: 5 GB
 
 ## Quick start
 
