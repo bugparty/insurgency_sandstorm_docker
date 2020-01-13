@@ -11,6 +11,7 @@ LABEL maintainer="fancycode@gmail.com"
 COPY --chown=steam config_ins/Insurgency /app/Insurgency
 # Add startup script
 COPY --chown=steam startup.sh /app/startup.sh
+COPY --chown=steam ./rconpp /app/
 #RUN chmod +x /app/startup.sh
 ENV GAME_PORT 27102
 ENV QUERY_PORT 27131
@@ -27,6 +28,8 @@ EXPOSE ${RCON_PORT}/tcp
 WORKDIR /opt/insurgency
 
 USER steam
+HEALTHCHECK --start-period=60s \
+           CMD /app/rconpp -H 127.0.0.1 -P $RCON_PORT -p $RCON_PASSWORD --healthy
 # Update and run insurgency
 ENTRYPOINT ["/app/startup.sh"]
 
