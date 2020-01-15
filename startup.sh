@@ -15,7 +15,9 @@ if [ "$COMMAND" == "update" ] || [ "$COMMAND" == "updaterun" ]; then
 fi
 echo "copying teaked game config from /app/Insurgency/ to /opt/insurgency/Insurgency/"
 cp -R /app/Insurgency/ /opt/insurgency/
-sed s/RconPasswordAAA/$RCON_PASSWORD/ /app/Insurgency/Saved/Config/LinuxServer/Game.ini | sed s/RconPortAAA/$RCON_PORT/ | cat > /opt/insurgency/Insurgency/Saved/Config/LinuxServer/Game.ini
+sed s/RconPasswordAAA/$RCON_PASSWORD/ /app/Insurgency/Saved/Config/LinuxServer/Game.ini | \
+    sed s/RconPortAAA/$RCON_PORT/ | \
+    cat > /opt/insurgency/Insurgency/Saved/Config/LinuxServer/Game.ini
 if [ "$COMMAND" == "run" ] || [ "$COMMAND" == "updaterun" ]; then      
 #Everytime the server start up or restart, it will start with a random map
 
@@ -40,6 +42,16 @@ RANDOM=$$$(date +%N)
 #set map
 strMap=${strMapList[$RANDOM % ${#strMapList[@]}]}      
 strMap="Farmhouse?Scenario=Scenario_Farmhouse_Checkpoint_Security"
-echo "game port $GAME_PORT ,query port $QUERY_PORT, rcon port $RCON_PORT, server name $SERVER_NAME"   
-/opt/insurgency/Insurgency/Binaries/Linux/InsurgencyServer-Linux-Shipping $strMap?MaxPlayers=$MAX_PLAYERS  -Port=$GAME_PORT -QueryPort=$QUERY_PORT -hostname="$SERVER_NAME"  -log  -MapCycle=MapCycle -NoEAC $@
+echo "game port $GAME_PORT ,query port $QUERY_PORT, rcon port $RCON_PORT, server name $SERVER_NAME"  
+  if [ "$GSLT" != "foo" ]; then
+      echo "community experience enabled, easy anti cheat enabled"
+      /opt/insurgency/Insurgency/Binaries/Linux/InsurgencyServer-Linux-Shipping $strMap?MaxPlayers=$MAX_PLAYERS \
+              -Port=$GAME_PORT -QueryPort=$QUERY_PORT -hostname="$SERVER_NAME" \
+              -GSLTToken=$GSLT -GameStats \
+              -log  -MapCycle=$MAP_LIST $@
+  else
+    /opt/insurgency/Insurgency/Binaries/Linux/InsurgencyServer-Linux-Shipping $strMap?MaxPlayers=$MAX_PLAYERS \
+              -Port=$GAME_PORT -QueryPort=$QUERY_PORT -hostname="$SERVER_NAME" \
+              -log  -MapCycle=$MAP_LIST -NoEAC $@
+  fi
 fi

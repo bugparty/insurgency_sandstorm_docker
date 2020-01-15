@@ -1,4 +1,4 @@
-FROM base
+FROM bowmanhan/insurgency_sandstorm_server:base
 LABEL maintainer="fancycode@gmail.com"
 # Install, update & upgrade packages
 # Create user for the server
@@ -19,7 +19,8 @@ ENV RCON_PORT 29100
 ENV MAX_PLAYERS 10
 ENV SERVER_NAME MagicGirl
 ENV RCON_PASSWORD fdsaklf23$adsf
-
+ENV GSLT=foo
+ENV MAP_LIST=MapCycle
 # Make server port available to host
 EXPOSE ${GAME_PORT}/udp 
 EXPOSE ${QUERY_PORT}/udp
